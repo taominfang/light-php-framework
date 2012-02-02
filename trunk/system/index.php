@@ -12,7 +12,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/smarty/configs/smartmain.php');
 
 
 
-dd($_SERVER);
 
 
 
@@ -192,7 +191,6 @@ try {
 		
 	}
 	
-	dd("we are end!");
 	
 } catch (Exception $e) {
 	$smarty->assign('errorMessage',"Exception:".$e->getMessage().' in file:'.$e->getFile().' line ['.$e->getLine().']');
