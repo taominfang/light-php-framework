@@ -3,28 +3,31 @@
 class ExampleController extends BasicController{
 
 
+
+    public function pre_filter(&$methodName = null) {
+        parent::pre_filter($methodName);
+
+        $this->view->addInternalJs("jquery-1.7.1.min.js");
+        $this->view->addInternalJs("jquery-ui-1.8.17.custom.min.js");
+        $this->view->addInternalCss("ui-lightness/jquery-ui-1.8.17.custom.css");
+
+
+
+
+    }
+
 	public function index(){
 
 
-		$this->set("Name","Fred Irving Johnathan Bradley Peppergill",true);
-		$this->set("FirstName",array("John","Mary","James","Henry"));
-		$this->set("LastName",array("Doe","Smith","Johnson","Case"));
-		$this->set("Class",array(array("A","B","C","D"), array("E", "F", "G", "H"),
-		array("I", "J", "K", "L"), array("M", "N", "O", "P")));
-
-		$this->set("contacts", array(array("phone" => "1", "fax" => "2", "cell" => "3"),
-		array("phone" => "555-4444", "fax" => "555-3333", "cell" => "760-1234")));
-
-		$this->set("option_values", array("NY","NE","KS","IA","OK","TX"));
-		$this->set("option_output", array("New York","Nebraska","Kansas","Iowa","Oklahoma","Texas"));
-		$this->set("option_selected", "NE");
+		$this->set('exa1','hello');
+        $this->view->exa2=array('world',' .');
 
 
 	}
 
 	public function ajax(){
-		$this->decorator='ajax';
-		$this->set("option_selected", "NE");
+		$this->setLayout("ajax.phtml");
+		$this->set("exa3", "Hello World, ajax");
 	}
 }
 

@@ -8,6 +8,7 @@
 
 class view {
 
+    public $uri_header=__PROJECT_HEADER__;
     public $title = "Unknow Title";
     public $layout = "default.phtml";
     public $template = "";
@@ -18,20 +19,24 @@ class view {
     private $style_array = array();
 
     public function set($variableName, $value) {
-        $this->$variableName = $value;
+        $this->{$variableName} = $value;
+
+
     }
 
+    public function popUrl($rela){
+        return '/'.__PROJECT_HEADER__.$rela;
+    }
 
-
-    public function addInternalJs($path){
-        $this->script_array[]="/js".$path;
+        public function addInternalJs($path){
+        $this->script_array[]='/'.__PROJECT_HEADER__.'js/'.$path;
     }
     public function addExternalJs($path){
         $this->script_array[]=$path;
     }
 
    public function addInternalCss($path){
-        $this->style_array[]="/css".$path;
+        $this->style_array[]='/'.__PROJECT_HEADER__.'css/'.$path;
     }
     public function addExternalCss($path){
         $this->styles_array[]=$path;
