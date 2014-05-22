@@ -3,7 +3,7 @@
 class BasicController {
 
 
-   
+
     protected $view;
     protected $required_in_session = array();
 
@@ -31,13 +31,15 @@ class BasicController {
     }
 
     public function post_filter(&$methodName = null) {
-        
+
     }
 
     public function set($pName, $pValue) {
-       
+
         $this->view->set($pName, $pValue);
     }
+
+    
 
 
 
