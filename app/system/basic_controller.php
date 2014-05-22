@@ -11,6 +11,10 @@ class BasicController {
         $this->view=$v;
     }
 
+    public function setLayout($layout_name) {
+        $this->view->setLayout($layout_name);
+    }
+
     public function pre_filter(&$methodName = null) {
 
 
@@ -39,7 +43,7 @@ class BasicController {
         $this->view->set($pName, $pValue);
     }
 
-    
+
 
 
 
