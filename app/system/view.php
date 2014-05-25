@@ -67,7 +67,7 @@ class view {
 
         $templateFile = __PROJECT_ROOT__ . '/views/' . $this->template;
         if (!is_file($templateFile)) {
-        Log::e("{$templateFile} is not a file");
+        MLog::e("{$templateFile} is not a file");
             throw new Exception("Template file is not existent:" + $this->template);
         }
         ob_start();
