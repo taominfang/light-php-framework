@@ -1,13 +1,21 @@
 <?php
 
 $currentDir = dirname(__FILE__);
+
+
+spl_autoload_register('my_autoloader');
+
+
 include_once $currentDir . '/function.php';
 include_once $currentDir . '/log.php';
 include_once $currentDir . '/view.php';
 include_once realpath($currentDir . '/../config') . '/system.php';
 include_once realpath($currentDir . '/../config') . '/data_source.php';
 
-date_default_timezone_set('America/Los_Angeles');
+
+
+
+date_default_timezone_set(__DEFAULT_TIME_ZONE__);
 
 $view = new view();
 
@@ -23,8 +31,6 @@ if (isset($t1[0])) {
 
 
 $uris = explode('/', $uri);
-
-
 
 
 if (!empty($uris[1])) {
@@ -123,4 +129,16 @@ try {
     $view->display('error/general_error.phtml');
     return;
 }
+
+function my_autoloader($class) {
+
+
+    if (strpos($class, "db_") === 0) {
+        $dbClassFile = realpath(dirname(__FILE__)) . '/../models/db/' . $class . '.php';
+        if (is_file($dbClassFile)) {
+            include_once $dbClassFile;
+        }
+    }
+}
+
 ?>
