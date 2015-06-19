@@ -1,0 +1,1 @@
+with smarty template, create php framework which can help easy to develop middle heave project
