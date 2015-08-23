@@ -11,3 +11,5 @@ define('__PROJECT_ROOT__', realpath(dirname(__FILE__).'/../'));
 define('__PROJECT_HEADER__','query-helper/');
 
 define('__PROJECT_HEADER_LENGTH__',  strlen(__PROJECT_HEADER__));
+
+define('__DEFAULT_TIME_ZONE__','America/Los_Angeles');
